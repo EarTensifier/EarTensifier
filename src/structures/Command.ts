@@ -1,4 +1,20 @@
+import { Client } from "discord.js";
+
 module.exports = class Command {
+  public client: Client;
+  public name: string;
+  public args: any;
+  public usage: string;
+  public description: string;
+  public aliases: any;
+  public enabled: boolean;
+  public cooldown: number;
+  public permission: string;
+  public voteLocked: boolean;
+  public inVoiceChannel: boolean;
+  public sameVoiceChannel: boolean;
+  public playing: boolean;
+
   constructor(client, options) {
     this.client = client;
     this.name = options.name;

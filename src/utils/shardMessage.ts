@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-module.exports = async (client, channelID, message) => {
+module.exports = async (client, channelID: String, message) => {
     client.shard.broadcastEval(`
 	(async () => {
 		let channel = this.channels.cache.get('${channelID}');

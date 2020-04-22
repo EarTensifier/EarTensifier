@@ -1,22 +1,21 @@
-const Discord = require('discord.js');
-const DBL = require('dblapi.js');
-
-const users = require('../models/user.js');
+import { MessageEmbed } from 'discord.js';
+import DBL = require('dblapi.js');
+import users = require('../models/user.js');
 
 module.exports.startUp = async (client) => {
 	const dblWebhook = new DBL(process.env.TOPGG_TOKEN, {
-		webhookPort: process.env.TOPGG_PORT,
+		webhookPort: Number(process.env.TOPGG_PORT),
 		webhookAuth: process.env.TOPGG_PASSWORD,
 	}, client);
 
-	dblWebhook.webhook.on('ready', async (hook) => {
+	dblWebhook.webhook.on('ready', async (hook: any) => {
 		client.log(`Top.gg webhook running at http://${hook.hostname}:${hook.port}${hook.path}`);
 	});
 
-	dblWebhook.webhook.on('vote', async (voter) => {
+	dblWebhook.webhook.on('vote', async (voter: any) => {
 		try {
 			const votedUser = await client.users.fetch(voter.user);
-			const embed = new Discord.MessageEmbed()
+			const embed = new MessageEmbed()
 				.setAuthor(`${votedUser.tag} - (${votedUser.id})`, votedUser.displayAvatarURL())
 				.setDescription(`**${votedUser.username}** voted for the bot!`)
 				.setThumbnail(votedUser.displayAvatarURL())

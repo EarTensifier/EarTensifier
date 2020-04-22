@@ -1,6 +1,6 @@
-const users = require('../../models/user.js');
+import users = require('../../models/user.js');
 
-module.exports = async (user, pledge) => {
+module.exports = async (user: any, pledge: string) => {
 	switch (pledge) {
 		case 'Remove': {
 			users.findOne({

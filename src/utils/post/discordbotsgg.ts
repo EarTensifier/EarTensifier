@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-const discordbots = require('discord.bots.gg');
+import discordbots from 'discord.bots.gg';
 const dbots = new discordbots(process.env.DISCORD_ID, process.env.DISCORDBOTSGG_TOKEN);
 
 module.exports = async (client, servers, shards, shardID) => {

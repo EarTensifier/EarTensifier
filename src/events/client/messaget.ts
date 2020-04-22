@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const Discord = require('discord.js');
+const { Message } = require('discord.js');
 const cooldowns = new Discord.Collection();
 
 const Event = require('../../structures/Event');
@@ -11,11 +11,17 @@ const premium = require('../../utils/premium/premium.js');
 const getVoted = require('../../utils/getVoted.js');
 
 module.exports = class Message extends Event {
+	author: any;
+	channel: any;
+	guild: any;
+	client: any;
+	content: any;
+	member: any;
 	constructor(...args) {
 		super(...args);
 	}
 
-	async run(message) {
+	async run(message: Message) {
 		if (message.author.bot) return;
 		if (message.channel.type === 'text') {
 			if (!message.guild.members.cache.get(this.client.user.id)) await message.guild.members.fetch(this.client.user.id);
@@ -232,5 +238,8 @@ module.exports = class Message extends Event {
 			}
 
 		});
+	}
+	reply(arg0: string) {
+		throw new Error("Method not implemented.");
 	}
 };

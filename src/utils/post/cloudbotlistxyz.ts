@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 module.exports = async (client, servers, users) => {
 	fetch(`https://cloud-botlist.xyz/api/bots/${client.user.id}`, {

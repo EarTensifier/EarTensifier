@@ -1,4 +1,4 @@
-const BotList = require('botlist.space');
+import BotList from 'botlist.space';
 const botListClient = new BotList.Client({ id: process.env.DISCORD_ID, botToken: process.env.BOTLISTSPACE_TOKEN });
 
 module.exports = async (client) => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-async-promise-executor */
-const { Utils } = require('erela.js');
+import { Utils } from 'erela.js';
 
-module.exports = async (client, message, msg, player, searchQuery, playlist) => {
+module.exports = async (client, message, msg, player, searchQuery: String, playlist: Boolean) => {
 
 	// eslint-disable-next-line no-unused-vars
 	const search = new Promise(async function(resolve, reject) {

@@ -1,4 +1,4 @@
-const users = require('../models/user.js');
+import users = require('../models/user.js');
 
 module.exports = async (client, author) => {
 	const u = await users.findOne({ authorID: author.id });

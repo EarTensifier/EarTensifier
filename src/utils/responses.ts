@@ -1,4 +1,4 @@
-module.exports = async (type, message, args) => {
+module.exports = async (type: String, message, args: String) => {
 	switch (type) {
 	case 'reloadError': {
 		message.channel.send(`An error occured while reloading \`${args}\`.`);
